@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aroua Talhi — Portfolio</title>
+<meta name="description" content="Aroua Talhi — Computer Science student specializing in Data Science & Emerging Technologies." />
+<style>
+  /* ===== Base ===== */
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial;
+    color:#e5e7eb; background:#0b0a11; line-height:1.6;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  :root{
+    --panel:rgba(255,255,255,.06);
+    --panel-b:rgba(255,255,255,.12);
+    --muted:#cbd5e1;
+    --muted2:#94a3b8;
+    --y:#f59e0b;     /* amber-500 */
+    --y2:#fde047;    /* yellow-300 */
+  }
+
+  /* ===== Starfield ===== */
+  #starfield{position:fixed;inset:0;z-index:-1;background:#020617}
+
+  /* ===== Layout ===== */
+  .container{max-width:1100px;margin:0 auto;padding:0 24px}
+  .grid{display:grid;gap:24px}
+  @media(min-width:960px){.grid-2{grid-template-columns:1fr 1fr}}
+
+  .pill{display:inline-block;padding:.35rem .75rem;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--panel-b);font-size:.85rem}
+  .card{background:var(--panel);border:1px solid var(--panel-b);border-radius:16px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+
+  .glow-text{background:linear-gradient(90deg,var(--y2),#fff4a3);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 18px rgba(253,224,71,.28)}
+
+  /* ===== Nav ===== */
+  .nav{position:sticky;top:0;background:rgba(2,6,23,.6);backdrop-filter:blur(8px);border-bottom:1px solid var(--panel-b)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .nav a:hover{color:var(--y2)}
+  .cta{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .75rem;border-radius:12px;border:1px solid rgba(253,224,71,.4);background:rgba(253,224,71,.18)}
+
+  /* ===== Hero ===== */
+  .hero{padding:64px 0 96px}
+  .hero h1{font-size:clamp(28px,5vw,48px);line-height:1.15;margin:0}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.2rem;border-radius:14px;border:1px solid var(--panel-b);background:rgba(255,255,255,.08)}
+  .btn.primary{background:var(--y);color:#0b0a11;border:none;box-shadow:0 8px 24px rgba(245,158,11,.22)}
+  .btn:hover{filter:brightness(1.06)}
+
+  /* Portrait */
+  .hero-media{display:grid;place-items:center}
+  .portrait-wrap{position:relative;width:min(230px,48vw);height:min(230px,48vw)}
+  .portrait-ring{position:absolute;inset:-8px;border-radius:999px;border:1px solid rgba(255,255,255,.28);animation:spin 40s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .portrait{width:100%;height:100%;object-fit:cover;border-radius:999px;border:4px solid var(--y2);box-shadow:0 0 24px var(--y2), 0 0 60px rgba(253,224,71,.28)}
+  .portrait-caption{opacity:.75;font-size:.85rem;margin-top:10px}
+
+  /* Sections */
+  section{scroll-margin-top:88px}
+  .title{display:flex;align-items:center;gap:10px;margin:0 0 16px;font-size:clamp(18px,3vw,24px)}
+  .dot{width:14px;height:14px;border-radius:50%;background:var(--y2);box-shadow:0 0 14px rgba(253,224,71,.6)}
+  .list{padding-left:18px;margin:12px 0}
+  .list li{margin:8px 0}
+
+  /* Footer */
+  footer{color:#94a3b8;padding:48px 0;border-top:1px solid var(--panel-b);margin-top:64px}
+  .links a{margin-right:12px}
+</style>
+</head>
+<body>
+<canvas id="starfield"></canvas>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="glow-text" style="font-weight:600">Aroua&nbsp;Talhi</a>
+    <div class="hide-on-mobile">
+      <a href="#about">About</a>&nbsp;&nbsp;
+      <a href="#experience">Experience</a>&nbsp;&nbsp;
+      <a href="#projects">Projects</a>&nbsp;&nbsp;
+      <a href="#skills">Skills</a>&nbsp;&nbsp;
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="cta" href="ArouaTalhi_CV.pdf" download>Résumé</a>
+  </div>
+</nav>
+
+<header id="top" class="hero">
+  <div class="container grid grid-2">
+    <div>
+      <h1>Hi, I’m <span class="glow-text">Aroua Talhi</span></h1>
+      <p style="margin:12px 0 0;color:var(--muted)">Computer Science • Data Science • Emerging Tech • Sustainability</p>
+      <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;color:var(--muted2)">
+        <span class="pill">Albukhary International University, Malaysia</span>
+        <a class="pill" href="mailto:aroua.talhi@student.aiu.edu.my">aroua.talhi@student.aiu.edu.my</a>
+        <a class="pill" href="tel:+601139675002">+60 11-3967 5002</a>
+      </div>
+      <div class="actions">
+        <a href="#projects" class="btn primary">🚀 Explore Projects</a>
+        <a href="https://www.linkedin.com/in/aroua-t/" class="btn" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <div class="portrait-wrap">
+        <div class="portrait-ring" aria-hidden="true"></div>
+        <img class="portrait" src="QQ.png" alt="Aroua Talhi portrait" />
+      </div>
+      <p class="portrait-caption">Tap/hover the orbit ✨</p>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section id="about">
+    <h2 class="title"><span class="dot"></span><span class="glow-text">About</span></h2>
+    <div class="card">
+      <p style="margin:0">
+        Computer Science student specializing in data science and emerging technologies. Founder & President of the
+        AIU STEAM Club. Experience across IoT devices, 3D-printed solutions, and web apps. Active in TechGirls, NASA
+        Space Apps, and STEM mentoring — passionate about sustainable, impactful tech.
+      </p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2 class="title"><span class="dot"></span><span class="glow-text">Experience</span></h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 style="margin:0 0 4px">Tech Product Developer (Hardware + Software)</h3>
+        <div style="color:var(--muted)">TEMOT • Malaysia</div>
+        <div style="color:var(--muted2);font-size:.9rem">2025 — Present</div>
+        <ul class="list">
+          <li>Designed IoT Smart Farming system with predictive irrigation analytics.</li>
+          <li>Real-time soil pH/temperature & weather monitoring; mobile access for control.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 4px">Eco-Tech Project Lead (Upcycled 3D-printing filament)</h3>
+        <div style="color:var(--muted)">Hult Prize / 3ZERO’S • Malaysia</div>
+        <div style="color:var(--muted2);font-size:.9rem">2024 — 2025</div>
+        <ul class="list">
+          <li>Converted post-consumer plastic into filament for prosthetic components.</li>
+          <li>Built small-scale extruder + winding system. Hult On-Campus Winner 2024; 3Zeros 4th Place 2025.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 4px">Social Media Marketing Specialist</h3>
+        <div style="color:var(--muted)">Green Hero Company • Malaysia</div>
+        <div style="color:var(--muted2);font-size:.9rem">2024</div>
+        <ul class="list">
+          <li>+20% engagement via cross-platform strategy; +15% online sales through targeted campaigns.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 4px">TEDx Lead Organizer</h3>
+        <div style="color:var(--muted)">TEDx at AIU • Malaysia</div>
+        <div style="color:var(--muted2);font-size:.9rem">2025 — Present</div>
+        <ul class="list">
+          <li>Led 20-person team: strategy, speaker curation, logistics, volunteers.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 4px">TechGirls Ambassador</h3>
+        <div style="color:var(--muted)">World Learning / Legacy International • Algeria • USA</div>
+        <div style="color:var(--muted2);font-size:.9rem">2022</div>
+        <ul class="list">
+          <li>Selected to represent Algeria in US-based exchange program.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 4px">Founder & President</h3>
+        <div style="color:var(--muted)">AIU STEAM Club • Malaysia</div>
+        <div style="color:var(--muted2);font-size:.9rem">2023 — 2025</div>
+        <ul class="list">
+          <li>Launched & mentored club initiatives across robotics, IoT, and sustainability.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="title"><span class="dot"></span><span class="glow-text">Projects</span></h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+          <h3 style="margin:0">Eat Quick — Smart Campus Dining</h3>
+          <a href="#" style="color:var(--y2)">Demo ↗</a>
+        </div>
+        <div style="color:var(--muted)">IoT + robotics + web ordering</div>
+        <p style="margin:.5rem 0 0;color:var(--muted2)">FYP with responsive ordering site, Flask + MySQL backend, and a 3D-printed delivery-robot prototype.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+          <span class="pill">Python</span><span class="pill">Flask</span><span class="pill">MySQL</span><span class="pill">HTML/CSS</span><span class="pill">React</span><span class="pill">Robotics</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin:0">IoT-Based Smart Watering (pH Monitoring)</h3>
+        <div style="color:var(--muted)">Low-cost irrigation with ESP32</div>
+        <p style="margin:.5rem 0 0;color:var(--muted2)">Soil moisture + pH sensing with mobile app interface; optimizes water usage and crop yield.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+          <span class="pill">IoT</span><span class="pill">Arduino</span><span class="pill">C++</span><span class="pill">Mobile</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin:0">Loan Default Prediction</h3>
+        <div style="color:var(--muted)">Deep learning on Zindi challenge</div>
+        <p style="margin:.5rem 0 0;color:var(--muted2)">Neural net achieved F1 0.67 and ROC-AUC 0.99; ranked ~top 30% among 1022 competitors.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+          <span class="pill">Python</span><span class="pill">Deep Learning</span><span class="pill">Pandas</span><span class="pill">NumPy</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin:0">Sentiment Analysis (IMDb)</h3>
+        <div style="color:var(--muted)">TF-IDF + classic ML</div>
+        <p style="margin:.5rem 0 0;color:var(--muted2)">Logistic Regression & Random Forest; ~85% accuracy, strong ROC-AUC.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px">
+          <span class="pill">NLP</span><span class="pill">Scikit-learn</span><span class="pill">TF-IDF</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="title"><span class="dot"></span><span class="glow-text">Skills</span></h2>
+    <div class="card">
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span class="pill">Python</span><span class="pill">R</span><span class="pill">SQL</span><span class="pill">NumPy</span><span class="pill">Pandas</span>
+        <span class="pill">React</span><span class="pill">Java</span><span class="pill">C</span><span class="pill">C++</span><span class="pill">Flask</span>
+        <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">Deep Learning</span><span class="pill">NLP</span><span class="pill">IoT (Arduino, ESP32)</span>
+        <span class="pill">Robotics</span><span class="pill">Leadership</span><span class="pill">Social Media Marketing</span><span class="pill">Canva</span><span class="pill">Illustrator</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="title"><span class="dot"></span><span class="glow-text">Contact</span></h2>
+    <div class="card grid grid-2">
+      <div>
+        <h3 style="margin:0 0 6px">Let’s build something stellar ✨</h3>
+        <p style="margin:0;color:var(--muted)">Open to internships, full-time roles, hackathons, and speaking invites.</p>
+        <div class="actions" style="margin-top:14px">
+          <a class="btn primary" href="mailto:aroua.talhi@student.aiu.edu.my">✉️ Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/aroua-t/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="tel:+601139675002">Call</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <button id="launch" class="btn" style="background:rgba(253,224,71,.18);border-color:rgba(253,224,71,.35)">🚀 Launch animation</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px">
+    <div>© <span id="year"></span> Aroua Talhi</div>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/aroua-t/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Starfield
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+  function size(){ canvas.width = innerWidth; canvas.height = innerHeight; }
+  addEventListener('resize', size); size();
+  const stars = Array.from({length: 220}).map(()=>({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    r: Math.random()*1.6,
+    s: Math.random()*0.5 + 0.2
+  }));
+  (function loop(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = '#ffffff';
+    for(const st of stars){
+      ctx.globalAlpha = 0.6 + Math.sin((st.x+st.y+performance.now()/700))*0.25;
+      ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, Math.PI*2); ctx.fill();
+      st.y += st.s; if(st.y>canvas.height){ st.y = 0; st.x = Math.random()*canvas.width; }
+    }
+    requestAnimationFrame(loop);
+  })();
+
+  // Simple portrait bounce on button
+  const btn = document.getElementById('launch');
+  const portrait = document.querySelector('.portrait');
+  if(btn && portrait){
+    btn.addEventListener('click', ()=>{
+      portrait.animate(
+        [{transform:'translateY(0)'},{transform:'translateY(-8px)'},{transform:'translateY(0)'}],
+        {duration:900,iterations:2}
+      );
+    });
+  }
+</script>
+</body>
+</html>
